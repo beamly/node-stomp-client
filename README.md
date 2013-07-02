@@ -14,6 +14,7 @@ The following enhancements have been added:
 *   Inbound frame validation (required / regex'able header values)
 *   Support for UNSUBSCRIBE frames in client
 *   Ability to add custom headers to SUBSCRIBE/UNSUBSCRIBE frames
+*   Support for ACK and NACK frames in client
 
 ## Installation
 
@@ -84,6 +85,16 @@ Disconnect from the STOMP server. The callback will be attached on the
 - `queue`: queue to publish to
 - `message`: message to publish, a string or buffer
 - `headers`: headers to add to the PUBLISH message
+
+## stomp.ack(subscriptionId, messageId)
+
+- `subscriptionId`: subscription ID of the message to acknowledge (`subscription` header from a message)
+- `messageId`: message ID of the message to acknowledge (`message-id` header from a message)
+
+## stomp.nack(subscriptionId, messageId)
+
+- `subscriptionId`: subscription ID of the message to nack (`subscription` header from a message)
+- `messageId`: message ID of the message to nack (`message-id` header from a message)
 
 ## Event: `'connect'`
 
